@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+       Carrito de compras
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+      
+<ion-content>
+  <ion-list>
+    <ion-item item-start *ngFor="let producto of productosCarrito">
+    {{producto.nombre}} ${{producto.precio}}
+    </ion-item>
+    <ion-item>
+      Total:
+      <ion-badge item-end>$ {{total}}</ion-badge>
+    </ion-item>
+     
+  </ion-list>
+
+  <div padding>
+    <button ion-button block (click)="comprar()">
+      <ion-icon padding name="logo-bitcoin"></ion-icon> Realizar compra</button>
+  </div>
+</ion-content>

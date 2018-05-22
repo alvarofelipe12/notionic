@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Angular4 2 Ionic
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let producto of productos">
+      <ion-item>
+        <ion-card>
+          <img *ngIf="producto.img" src="{{producto.img}}">
+          <img *ngIf="!producto.img" src="https://pvsmt99345.i.lithium.com/t5/image/serverpage/image-id/10546i3DAC5A5993C8BC8C/image-size/original?v=v2&px=-1" >
+          <ion-fab right bottom>
+            <button ion-fab mini (click)="goToDetail(producto.id)">
+              <ion-icon name="brush"></ion-icon>
+            </button>
+          </ion-fab>
+          <ion-fab left bottom>
+              <button ion-fab mini color="secondary" (click)="agregarAlCarrito(producto)">
+                <ion-icon name="cart"></ion-icon>
+              </button>
+            </ion-fab>
+          <ion-card-content>
+          <ion-card-title>{{producto.nombre}}</ion-card-title>
+          <p>{{producto.descripcion}}</p>
+          <p align="center">Precio: ${{producto.precio}}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-item>
+    </ion-item-sliding>
+    <!-- <button ion-item *ngFor="let producto of productos" (click)="goToDetail(producto.id)">
+      {{producto.nombre}} ${{producto.precio}}
+    </button> -->
+  </ion-list>
+  <div padding>
+    <button ion-button block (click)="crearProducto()">
+        <ion-icon padding name="person-add"></ion-icon> Crear producto</button>
+  </div>
+  <div padding>
+      <button ion-button block color="secondary" (click)="goToCarrito()">
+          <ion-icon padding name="cart"></ion-icon>Ver carrito de compras</button>
+    </div>
+</ion-content>
